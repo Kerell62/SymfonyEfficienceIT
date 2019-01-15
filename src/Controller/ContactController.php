@@ -19,7 +19,11 @@ class ContactController extends AbstractController{
 
         $form->handleRequest($request);
 
-        dump($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $contactFormData = $form->getData();
+        }
+
+        dump($contactFormData);
 
         return $this->render('pages/formulaire.html.twig', [
             'our_form' => $form->createView()
