@@ -14,16 +14,33 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends AbstractController{
 
-    public function index(Request $request){
+    public function index(Request $request, \Swift_Mailer $mailer){
         $form = $this->createForm(ContactType::class);
 
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()){
             $contactFormData = $form->getData();
+
+            dump($contactFormData);
+
+            $message = (new \Swift_Message('Vous avez un nouvel Email'))
+                ->setFrom($form->getData()->getMailFrom())
+                ->setTo($form->getData()->getMailTo())
+                ->setBody(
+                    $form->getData()->getMessage(),
+                    'text/plain'
+                )
+            ;
+
+            $mailer->send($message);
+            $this->addFlash('success', 'Votre Email à bien été envoyé');
+
+            return $this->redirectToRoute('home');
         }
 
-        dump($contactFormData);
 
         return $this->render('pages/formulaire.html.twig', [
             'our_form' => $form->createView()

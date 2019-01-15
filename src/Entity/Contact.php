@@ -4,7 +4,8 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Contact {
+class Contact
+{
 
     /**
      * @var string|null
@@ -25,7 +26,7 @@ class Contact {
      * @Assert\NotBlank()
      * @Assert\Email()
      */
-    private $mailSend;
+    private $mailFrom;
 
     /**
      * @var string|null
@@ -38,7 +39,7 @@ class Contact {
      * @var string|null
      * @Assert\NotBlank()
      */
-    private $mailReceive;
+    private $mailTo;
 
     /**
      * @return string|null
@@ -79,18 +80,18 @@ class Contact {
     /**
      * @return string|null
      */
-    public function getMailSend(): ?string
+    public function getMailFrom(): ?string
     {
-        return $this->mailSend;
+        return $this->mailFrom;
     }
 
     /**
-     * @param string|null $mailSend
+     * @param string|null $mailFrom
      * @return Contact
      */
-    public function setMailSend(?string $mailSend): Contact
+    public function setMailFrom(?string $mailFrom): Contact
     {
-        $this->mailSend = $mailSend;
+        $this->mailFrom = $mailFrom;
         return $this;
     }
 
@@ -115,21 +116,20 @@ class Contact {
     /**
      * @return string|null
      */
-    public function getMailReceive(): ?string
+    public function getMailTo(): ?string
     {
-        return $this->mailReceive;
+        return $this->mailTo;
     }
 
     /**
-     * @param string|null $mailReceive
+     * @param string|null $mailTo
      * @return Contact
      */
-    public function setMailReceive(?string $mailReceive): Contact
+    public function setMailTo(?string $mailTo): Contact
     {
-        $this->mailReceive = $mailReceive;
+        $this->mailTo = $mailTo;
         return $this;
     }
-
 
 
 }

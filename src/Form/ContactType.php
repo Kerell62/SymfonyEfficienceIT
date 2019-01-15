@@ -13,7 +13,6 @@ use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,14 +25,13 @@ class ContactType extends AbstractType{
         $builder
             ->add('firstName',TextType::class)
             ->add('lastName',TextType::class)
-            ->add('mailSend',EmailType::class)
+            ->add('mailFrom',EmailType::class)
             ->add('message',TextareaType::class)
-            ->add('mailReceive', ChoiceType::class, array(
+            ->add('mailTo', ChoiceType::class, array(
                 'choices' => array(
-                    'Admin' => 'admin@gmail.com',
-                    'Reseau' => 'reseau@gmail.com',
-                    'Compta' => 'compta@gmail.com',
-                    'test' => 'oxx.59.62@gmail.com',
+                    'Admin' => 'BubShot@mailinator.com',
+                    'Reseau' => 'reseau@mailinator.com',
+                    'Compta' => 'compta@mailinator.com',
                 ),
             ))
         ;
