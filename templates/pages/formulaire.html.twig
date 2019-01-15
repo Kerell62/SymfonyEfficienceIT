@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Formulaire de contact' %}
+{% block body %}
+    <div class="jumbotron txt-center">
+        <div class="container">
+            <h1>Bienvenue sur le formulaire de contact</h1>
+            <p>Veuillez remplir les champs pour envoyer l'email.</p>
+        </div>
+    </div>
+
+        <div class ="container">
+            {{ form_start(our_form) }}
+            {{ form_widget(our_form) }}
+
+            <input type="submit" value="Submit" class="btn btn-success"/>
+
+            {{ form_end(our_form) }}
+        </div>
+
+
+{% endblock %}
