@@ -36,7 +36,8 @@ class Contact
     private $message;
 
     /**
-     * @Assert\NotBlank()
+     * @ManyToOne(targetEntity="MailTo")
+     * @JoinColumn(name="mailTo", referencedColumnName="mail")
      */
     private $mailTo;
 
