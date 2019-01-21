@@ -24,8 +24,6 @@ class ContactController extends AbstractController{
         if ($form->isSubmitted() && $form->isValid()){
             $contactFormData = $form->getData();
 
-            dump($contactFormData);
-
             $message = (new \Swift_Message('Vous avez un nouvel Email'))
                 ->setFrom($form->getData()->getMailFrom())
                 ->setTo($form->getData()->getMailTo())
