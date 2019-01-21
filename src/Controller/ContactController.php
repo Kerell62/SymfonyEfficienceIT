@@ -20,7 +20,7 @@ class ContactController extends AbstractController{
         $form->handleRequest($request);
 
 
-
+        dump($form);
         if ($form->isSubmitted() && $form->isValid()){
             $contactFormData = $form->getData();
 

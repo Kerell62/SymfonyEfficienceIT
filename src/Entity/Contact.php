@@ -36,7 +36,6 @@ class Contact
     private $message;
 
     /**
-     * @var string|null
      * @Assert\NotBlank()
      */
     private $mailTo;

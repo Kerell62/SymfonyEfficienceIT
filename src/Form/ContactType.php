@@ -10,8 +10,9 @@ namespace App\Form;
 
 
 use App\Entity\Contact;
+use App\Entity\MailTo;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,14 +28,10 @@ class ContactType extends AbstractType{
             ->add('lastName',TextType::class)
             ->add('mailFrom',EmailType::class)
             ->add('message',TextareaType::class)
-            ->add('mailTo', ChoiceType::class, array(
-                'choices' => array(
-                    'Admin' => 'BubShot@mailinator.com',
-                    'Reseau' => 'reseau@mailinator.com',
-                    'Compta' => 'compta@mailinator.com',
-                ),
-            ))
-        ;
+            ->add('mailTo', EntityType::class, [
+                'class' => MailTo::class,
+                'choice_label' => 'mail',
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
