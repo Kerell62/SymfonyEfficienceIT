@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact
@@ -36,8 +37,8 @@ class Contact
     private $message;
 
     /**
-     * @ManyToOne(targetEntity="MailTo")
-     * @JoinColumn(name="mailTo", referencedColumnName="mail")
+     * @ORM\ManyToOne(targetEntity="MailTo")
+     * @ORM\JoinColumn(name="mailTo", referencedColumnName="mail")
      */
     private $mailTo;
 

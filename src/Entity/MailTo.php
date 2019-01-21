@@ -22,7 +22,6 @@ class MailTo
     private $name;
 
     /**
-     * @OneToMany(targetEntity="Contact", mappedBy="mailTo")
      * @ORM\Column(type="string", length=50)
      */
     private $mail;
